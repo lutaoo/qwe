@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    body {
+        margin: 0;
+        padding: 0;
+        margin-left: 10px;
+    }
+#app-5 table tr{
+  text-align: center;
+   }
+
+
+   
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Vue demo</h1>
+            <div id="app">
+                .......
+            </div>
+        </div>
+    </div>
+    <div id="box">
+        <div>{{message}}</div>
+        <input type="text" v-model="message">
+        <!-- 列表渲染在实际开发中非常常见，vue.js使用v-for这个指令就能完成， -->
+    </div>
+    <!-- vue.js通过v-on完成事件处理与绑定，比如为一个button绑定click事件，我们就可以这么写:v -->
+    <button id="btn" v-on:click="doSomething">doSomething</button>
+    <div id="app-2">
+        <span v-bind:title="message">
+    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+  </span>
+    </div>
+    <div id="app-3">
+        <p v-if="seen">现在你看到我了</p>
+    </div>
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
+    <div id="app-5">
+        <table border="1" width="300" height="200" bgcolor="pink" cellspacing="0"  rules="rows"  frame="hsides">
+        <caption>知了书架</caption>
+            <tr>
+                <th>序号</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>价格</th>
+            </tr>
+            <tr v-for="book in books ">
+                <td>{{book.id}}</td>
+                <td>{{book.name}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.price}}</td>
+            </tr>
+        </table>
+    </div>
+<div id="app-6">
+  <p>{{ message }}</p>
+  <button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+
+<div id="app-7">
+  <ol>
+    <!-- Now we provide each todo-item with the todo object    -->
+    <!-- it's representing, so that its content can be dynamic -->
+    <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+  </ol>
+</div>
+<div id="app-8">{{ message | capitalize }}</div>
+<!-- in v-bind -->
+<div v-bind:id="rawId | formatId"></div>
+
+
+
+    
+
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+
+</html>
